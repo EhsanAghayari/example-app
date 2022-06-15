@@ -17,19 +17,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact-us',function() {
+/*Route::get('/contact-us',function() {
     $num = "09123456789";
     echo "Hi our number is: {$num}";
-});
+});*/
 
-Route::get('/posts/{id}/{name}',function ($name,$id){ // bar assas tartib kar mikone
+/*Route::get('/posts/{id}/{name}',function ($name,$id){ // bar assas tartib kar mikone
     echo "post id is: {$id} and name is: {$name}";
-});
+});*/
 
-Route::get('/admin',function (){
+/*Route::get('/admin',function (){
     $url = route('admin');
     echo "{$url}";
-})->name('admin');
+})->name('admin');*/
 
-Route::redirect('/post/login','/redirected/page1',302);
-// will redirect page to /redirected/page1 with status 302
+/*Route::redirect('/post/login','/redirected/page1',302);
+// will redirect page to /redirected/page1 with status 302*/
+
+/*// Group
+Route::prefix('admin')->group(function (){
+    Route::get('/login',function (){
+        echo "Hi this is admin group login";
+    });
+    Route::get('/profile',function(){
+       echo "Hi this is admin group profile";
+    });
+});*/
+
+
