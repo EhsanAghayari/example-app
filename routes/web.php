@@ -16,3 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contact-us',function() {
+    $num = "09123456789";
+    echo "Hi our number is: {$num}";
+});
+
+Route::get('/posts/{id}/{name}',function ($name,$id){ // bar assas tartib kar mikone
+    echo "post id is: {$id} and name is: {$name}";
+});
+
+Route::get('/admin',function (){
+    $url = route('admin');
+    echo "{$url}";
+})->name('admin');
+
+Route::redirect('/post/login','/redirected/page1',302);
+// will redirect page to /redirected/page1 with status 302
