@@ -34,7 +34,7 @@ Route::get('/', function () {
 /*Route::redirect('/post/login','/redirected/page1',302);
 // will redirect page to /redirected/page1 with status 302*/
 
-/*// Group
+/* // Group
 Route::prefix('admin')->group(function (){
     Route::get('/login',function (){
         echo "Hi this is admin group login";
@@ -44,4 +44,14 @@ Route::prefix('admin')->group(function (){
     });
 });*/
 
+/*Route::get('/posts', 'App\Http\Controllers\PostsController@index');
+// output is ALl posts list
 
+Route::post('/posts', 'App\Http\Controllers\PostsController@create');*/
+
+/*
+Route::resource('/posts', '\App\Http\Controllers\PostsController');*/
+
+//Route::get('/posts/{id?}','\App\Http\Controllers\PostsController@index');
+
+Route::get('/show-view/{id}/{name}/{pass}','\App\Http\Controllers\PostsController@showMyView');
