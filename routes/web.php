@@ -54,4 +54,21 @@ Route::resource('/posts', '\App\Http\Controllers\PostsController');*/
 
 //Route::get('/posts/{id?}','\App\Http\Controllers\PostsController@index');
 
-Route::get('/show-view/{id}/{name}/{pass}','\App\Http\Controllers\PostsController@showMyView');
+Route::get('/show-view/{id}/{name}','\App\Http\Controllers\PostsController@showMyView');
+
+Route::get('/contact','\App\Http\Controllers\PostsController@contact');
+
+
+// DB CRUD
+Route::get('/insert','\App\Http\Controllers\PostsController@insert');
+Route::get('/select','\App\Http\Controllers\PostsController@select');
+Route::get('/update_post','\App\Http\Controllers\PostsController@updatePost');
+Route::get('/delete_post','\App\Http\Controllers\PostsController@deletePost');
+
+Route::get('posts','\App\Http\Controllers\PostsController@getAllPosts');
+Route::get('save-post','\App\Http\Controllers\PostsController@savePost');
+Route::get('new-update-post','\App\Http\Controllers\PostsController@newUpdatePost');
+Route::get('new-delete-post','\App\Http\Controllers\PostsController@newDeletePost');
+Route::get('data-trash','\App\Http\Controllers\PostsController@workWithTrash');
+Route::get('restore-post','\App\Http\Controllers\PostsController@restorePost');
+Route::get('force-delete','\App\Http\Controllers\PostsController@forceDelete');
