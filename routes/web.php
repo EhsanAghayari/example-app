@@ -72,3 +72,58 @@ Route::get('new-delete-post','\App\Http\Controllers\PostsController@newDeletePos
 Route::get('data-trash','\App\Http\Controllers\PostsController@workWithTrash');
 Route::get('restore-post','\App\Http\Controllers\PostsController@restorePost');
 Route::get('force-delete','\App\Http\Controllers\PostsController@forceDelete');
+
+
+// Eloquent Relationship
+
+/*// one to one relationship
+Route::get('user/{id}/post', function ($id) {
+    $user_post = \App\Models\User::find($id)->post;
+    return $user_post;
+    // fetch post belong to user with id = $id
+});
+
+Route::get('post/{id}/user', function ($id) {
+    $post_user = \App\Models\Post::find($id)->user;
+    return $post_user;
+});*/
+
+/*// one to many relation
+Route::get('user/{id}/posts', function ($id) {
+    $user_posts = \App\Models\User::find($id)->posts;
+    foreach ($user_posts as $post){
+        echo $post->content;
+        echo "<br>";
+    }
+    // fetch all posts belong to user with id = $id
+});*/
+
+/*// many to many relationship
+Route::get('user/{id}/roles', function ($id) {
+    $user_roles = \App\Models\User::find($id)->roles;
+    foreach ($user_roles as $role){
+        echo $role->name;
+        echo "<br>";
+    }
+    // fetch all roles belong to user with id = $id relation is many to many
+});
+
+Route::get('role/{id}/users', function ($id) {
+    $role_users = \App\Models\Role::find($id)->users;
+    foreach ($role_users as $user){
+        echo $user->name;
+        echo "<br>";
+    }
+    // fetch all users belong to role with id = $id relation is many to many
+});*/
+
+/*// has many through
+Route::get('user/country',function (){
+   $country = \App\Models\Country::find(2);
+   foreach($country->posts as $post){
+       echo $post->content;
+       echo "<br>";
+   }
+});*/
+
+// polymorphic relationship
