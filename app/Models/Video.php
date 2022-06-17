@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Photo extends Model
+class Video extends Model
 {
-    public function imageable()
+    public function tags()
     {
-        return $this->morphTo();
+        return $this->morphToMany(Tag::class,'taggable');
     }
 }

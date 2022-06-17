@@ -126,4 +126,181 @@ Route::get('user/country',function (){
    }
 });*/
 
+
 // polymorphic relationship
+
+/*Route::get('user/photo',function (){
+    $user = \App\Models\User::find(1);
+    foreach($user->photos as $photo){
+        echo $photo->path;
+        echo "<br>";
+    }
+});
+
+Route::get('post/photo',function (){
+    $post = \App\Models\Post::find(8);
+    foreach($post->photos as $photo){
+        echo $photo->path;
+        echo "<br>";
+    }
+});*/
+
+/*Route::get('post/tag',function (){
+    $post = App\Models\Post::find(9);
+    foreach ($post->tags as $tag){
+        echo $tag->name;
+        echo "<br>";
+    }
+});
+
+Route::get('video/tag',function (){
+    $video = App\Models\Video::find(1);
+    foreach ($video->tags as $tag){
+        echo $tag->name;
+        echo "<br>";
+    }
+});
+
+Route::get('tag/1/video',function (){
+    $tag = App\Models\Tag::find(1);
+    foreach ($tag->videos as $video){
+        echo $video->name;
+        echo "<br>";
+    }
+});
+Route::get('tag/2/post',function (){
+    $tag = App\Models\Tag::find(2);
+    foreach ($tag->posts as $post){
+        echo $post->content;
+        echo "<br>";
+    }
+});*/
+
+// CRUD Relationships (Eloquent)
+
+/* // CRUD one to many
+Route::get('/create',function(){
+   $user = \App\Models\User::find(1);
+   $post = new \App\Models\Post();
+   $post->title = 'one to many';
+   $post->content = 'new post with one to many rel';
+
+   $user->posts()->save($post);
+});
+
+Route::get('/read',function (){
+    $user = \App\Models\User::find(1);
+    foreach($user->posts as $post){
+        echo $post->content;
+        echo "<br>";
+    }
+});
+
+Route::get('/update',function (){
+   $user = \App\Models\User::find(1);
+   $user->posts()->whereId(8)->update(['title'=>'new title','content'=>'new updated content']);
+});
+
+Route::get('/delete',function (){
+    $user = \App\Models\User::find(2);
+    $user->posts()->whereId(9)->delete();
+});*/
+
+/*// CRUD many to many
+Route::get('/create', function (){
+    $user = \App\Models\User::find(1);
+    $role = new \App\Models\Role();
+    $role->name = 'Developer';
+    $user->roles()->save($role);
+});
+
+Route::get('/read',function (){
+    $user = \App\Models\User::find(1);
+    foreach ($user->roles as $role){
+        echo $role->name;
+        echo "<br>";
+    }
+});
+
+Route::get('/update',function (){
+    $user = \App\Models\User::find(1);
+    if ($user->has('roles')){
+        foreach($user->roles as $role){
+            if($role->name = 'کاربر عادی'){
+                $role->name = 'Author';
+                $role->save();
+            }
+        }
+    }
+});
+
+Route::get('/delete',function (){
+   $user = \App\Models\User::find(1);
+   foreach($user->roles as $role){
+       if($role->name = 'Author'){
+           $role->delete();
+       }
+   }
+});
+
+// Attach and detach adn sync
+Route::get('/detach', function(){
+   $user = \App\Models\User::find(1);
+   $user->roles()->detach(1);
+});
+
+Route::get('/attach', function(){
+    $user = \App\Models\User::find(1);
+    $user->roles()->attach(1);
+});
+
+Route::get('/sync', function(){
+    $user = \App\Models\User::find(1);
+    $user->roles()->sync([1,2]);
+});*/
+
+/*// CRUD Polymorphic Relationship
+Route::get('/create',function (){
+    $video = \App\Models\Video::find(1);
+    $video->tags()->create(['name'=>'poly video']);
+    // we create a fillable in tag class
+});
+
+Route::get('/read',function (){
+    $video = \App\Models\Video::find(1);
+    foreach ($video->tags as $tag){
+        echo $tag->name;
+        echo "<br>";
+    }
+});
+
+Route::get('/update',function (){
+   $video = \App\Models\Video::find(1);
+   $tag = $video->tags();
+   $newTags = $tag->where('id',3)->first();
+   $newTags->name = 'new tag';
+   $newTags->save();
+   // :(
+});
+
+Route::get('/delete',function (){
+   $video = \App\Models\Video::find(1);
+   $tag = $video->tags();
+   $deletedTag = $tag->where('id', 3)->first();
+   $deletedTag->delete();
+});
+
+Route::get('/detach',function (){
+   $video = \App\Models\Video::find(1);
+   $video->tags()->detach();
+});
+
+Route::get('/attach',function (){
+    $video = \App\Models\Video::find(1);
+    $video->tags()->attach(1);
+});
+
+Route::get('/sync',function (){
+    $video = \App\Models\Video::find(1);
+    $video->tags()->sync([2]);
+});*/
